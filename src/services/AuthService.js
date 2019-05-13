@@ -41,6 +41,24 @@ class AuthenticationService {
         return res.send(JSON.stringify(reply));
     }
 
+    static async login(){
+        const db = getDB();
+        const reply = new Reply();
+        var { username, password} = req.body;
+        if (!req.body || !password || !username) {
+            reply.error.push('Invalid data');
+            return res.send(JSON.stringify(reply));
+        }
+        const user =  await db.collection('Users').findOne({ Username: username , Password: password });
+        if(!user){
+            reply.error.push('User does not exist with given username password combination');
+            return res.send(JSON.stringify(reply));
+        }
+        reply.data =  {name: user.Name, email: user.Email, username: user.Username };
+        reply.info = jwt.sign({username: user.Username, id: user._id.toString()}, config.secretKey);
+        return res.send(JSON.stringify(reply));
+    }
+
 }
 
 module.exports = AuthenticationService; 

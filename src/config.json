@@ -1,4 +1,7 @@
 {
     "dbUrl":"mongodb://localhost:27017/",
-    "dbName" : "toyroo"
+    "dbName" : "chatbot",
+    "aylien_app_id": "6e819ed4",
+    "aylien_app_key": "dd23f9f366cddf1577a1965be0154f6b",
+    "secretKey": "secret.secret"
 }
