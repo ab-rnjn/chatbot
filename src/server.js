@@ -28,11 +28,8 @@ app.use(function (req, res, next) {
 
 //================================================ Services =============================================================
 
-app.post('/auth', AuthService.login);
-app.post('/createRule', SentimentService.createRules);
-app.post('/sendRules', SentimentService.sendRules);
-app.get('/sendCampaign', AuthService.sendCampaign);
-
+app.post('/login', AuthService.login);
+app.get('/checkUsername/:name', AuthService.checkUsername);
 app.get('/fetchMessages/:user', SentimentService.fetchMessages);
 app.get('/fetchUsers', SentimentService.fetchUsers);
 

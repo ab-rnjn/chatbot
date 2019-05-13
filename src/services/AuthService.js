@@ -31,7 +31,7 @@ class AuthenticationService {
     static async checkUsername() {
         const db = getDB();
         const reply = new Reply();
-        const { username } = req.body;
+        const username = req.params.name;
         const user = await db.collection('Users').findOne({ Username: username });
         if (user) {
             reply.error = 'Username Already Taken';
