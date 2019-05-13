@@ -1,6 +1,8 @@
 const { getDB } = require('../Utility/mongoClient');
 const Reply = require('../Utility/Reply');
 const Mongo = require('mongodb');
+const jwt = require('jsonwebtoken');
+const config = require('../config');
 
 class AuthenticationService {
 
@@ -28,7 +30,7 @@ class AuthenticationService {
         return res.send(JSON.stringify(reply));
     }
 
-    static async checkUsername() {
+    static async checkUsername(req,res) {
         const db = getDB();
         const reply = new Reply();
         const username = req.params.name;
@@ -41,7 +43,7 @@ class AuthenticationService {
         return res.send(JSON.stringify(reply));
     }
 
-    static async login(){
+    static async login(req, res){
         const db = getDB();
         const reply = new Reply();
         var { username, password} = req.body;
@@ -54,8 +56,8 @@ class AuthenticationService {
             reply.error.push('User does not exist with given username password combination');
             return res.send(JSON.stringify(reply));
         }
-        reply.data =  {name: user.Name, email: user.Email, username: user.Username };
-        reply.info = jwt.sign({username: user.Username, id: user._id.toString()}, config.secretKey);
+        reply.data =  {name: user.Name, email: user.Email, username: user.Username, id: user._id };
+        reply.info = jwt.sign({username: user.Username, id: user._id}, config.secretKey);
         return res.send(JSON.stringify(reply));
     }
 

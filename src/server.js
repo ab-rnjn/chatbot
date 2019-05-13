@@ -6,30 +6,31 @@ const bodyParser = require('body-parser');
 const AuthService = require('./services/AuthService');
 const SentimentService = require('./services/SentimentService');
 const jwt = require('jsonwebtoken');
-const config = require('../config');
+const config = require('../src/config');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(Cors());
 
-app.use(function (req, res, next) {
-    if (!req.headers.authorization) {
-        return res.status(403).json({ error: 'Permission Denied' });
-    }
-    try {
-        const token = req.get('authorization');
-        jwt.verify(token, config.secretKey);
-    } catch (err) {
-        console.log(err);
-        return res.status(403).json({ error: 'Permission Denied' });
-    }
-    next();
-});
+// app.use(function (req, res, next) {
+//     if (!req.headers.authorization) {
+//         return res.status(403).json({ error: 'Permission Denied' });
+//     }
+//     try {
+//         const token = req.get('authorization');
+//         jwt.verify(token, config.secretKey);
+//     } catch (err) {
+//         console.log(err);
+//         return res.status(403).json({ error: 'Permission Denied' });
+//     }
+//     next();
+// });
 
 //================================================ Services =============================================================
 
 app.post('/login', AuthService.login);
 app.get('/checkUsername/:name', AuthService.checkUsername);
+app.post('/newUser', AuthService.newUser);
 app.get('/fetchMessages/:user', SentimentService.fetchMessages);
 app.get('/fetchUsers', SentimentService.fetchUsers);
 

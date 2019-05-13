@@ -10,17 +10,17 @@ var sentiment = new Sentiment();
 // var result = sentiment.analyze("Cats are not amazing.");
 // console.log('sentiment', result);
 
-// var textapi = new AylienTextAPI({
-//   application_id: config.aylien_app_id,
-//   application_key: config.aylien_app_key
-// });
+const textapi = new AylienTextAPI({
+  application_id: config.aylien_app_id,
+  application_key: config.aylien_app_key
+});
 // textapi.sentiment({
 //   'text': 'Cats are not amazing.'
 // }, function (error, response) {
 //   if (error === null) {
 //     console.log('alyien', response);
 //   }
-//   // console.log('error', error);
+//  console.log('error', error);
 // });
 
 class SentimentService {
@@ -29,6 +29,16 @@ class SentimentService {
   }
 
   static async fetchMessages(req, res) {
+    if (!req.headers.authorization) {
+      return res.status(403).json({ error: 'Permission Denied' });
+    }
+    try {
+      const token = req.get('authorization');
+      jwt.verify(token, config.secretKey);
+    } catch (err) {
+      console.log(err);
+      return res.status(403).json({ error: 'Permission Denied' });
+    }
     const db = getDB();
     const reply = new Reply();
     const user_alpha = jwt.decode(req.get('authorization')).id //check it;
@@ -61,9 +71,19 @@ class SentimentService {
   }
 
   static async fetchUsers(req, res) {
+    if (!req.headers.authorization) {
+      return res.status(403).json({ error: 'Permission Denied' });
+    }
+    try {
+      const token = req.get('authorization');
+      jwt.verify(token, config.secretKey);
+    } catch (err) {
+      console.log(err);
+      return res.status(403).json({ error: 'Permission Denied' });
+    }
     const db = getDB();
     const reply = new Reply();
-    const userList = db.collection('Users').find({}, { password: 0 }).toArray();
+    const userList = await db.collection('Users').find({}, {projection:{Password: 0}}).toArray();
     reply.data = userList;
     return res.send(JSON.stringify(reply));
   }
