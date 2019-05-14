@@ -43,30 +43,32 @@ class SentimentService {
     const reply = new Reply();
     const user_alpha = jwt.decode(req.get('authorization')).id //check it;
     const user_beta = req.params.user;
-    const messageList = await db.collection('Users').find({ $or: [{ from: user_alpha, to: user_beta }, { from: user_beta, to: user_alpha }] }).sort({ time: 1 });
+    // console.log(user_alpha,user_beta);
+    const messageList = await db.collection('Messages').find({ $or: [{ from: user_alpha, to: user_beta }, { from: user_beta, to: user_alpha }] }, { projection: { _id: 0 } }).
+      sort({ time: 1 }).toArray();
+    // console.log(messageList);
     reply.data = messageList;
     return res.send(JSON.stringify(reply));
   }
 
-  static async sendMessage(socket, data) {
+  static async sendMessage(io, data) {
     const db = getDB();
-    let token = socket.handshake.headers['Authorization'];
-
-    const alpha_user = jwt.decode(token).id;    // extract header from data verify returns alpha id
+    const alpha_user = data.token.id;    // extract header from data verify returns alpha id
     const sentiment = await new Promise((resolve, reject) => {
       textapi.sentiment({
         'text': data.message
       }, function (error, response) {
         if (error === null) {
-          console.log('alyien', response);
+          // console.log('alyien', response);
           resolve(response.polarity); // return emoji
         }
         reject(error);
       });
     });
-    data.sentiment = sentiment;
-    io.sockets.in(alpha_user).emit('message', { beta_user: data.beta, message: data.message, sentiment });
-    await db.collection('Messages').save({ from: alpha, to: beta, message: data.message, sentiment, time: new Date() });
+    const sentiment_map = { positive: ':)', negative: ':(', neutral: ':|' }
+    data.sentiment = sentiment_map[sentiment];
+    io.sockets.in(data.beta).emit('message', { beta_user: data.beta, message: data.message, sentiment: data.sentiment, alpha_user: alpha_user });
+    await db.collection('Messages').save({ from: alpha_user, to: data.beta, message: data.message, sentiment: data.sentiment, time: new Date() });
     return
   }
 
@@ -74,16 +76,17 @@ class SentimentService {
     if (!req.headers.authorization) {
       return res.status(403).json({ error: 'Permission Denied' });
     }
+    let id;
     try {
       const token = req.get('authorization');
-      jwt.verify(token, config.secretKey);
+      id = jwt.verify(token, config.secretKey).id;
     } catch (err) {
       console.log(err);
       return res.status(403).json({ error: 'Permission Denied' });
     }
     const db = getDB();
     const reply = new Reply();
-    const userList = await db.collection('Users').find({}, {projection:{Password: 0}}).toArray();
+    const userList = await db.collection('Users').find({ _id: { $ne: new Mongo.ObjectID(id) } }, { projection: { Password: 0 } }).toArray();
     reply.data = userList;
     return res.send(JSON.stringify(reply));
   }

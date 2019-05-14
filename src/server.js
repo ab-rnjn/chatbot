@@ -40,43 +40,64 @@ const server = app.listen(2000, () => {
     });
 })
 
-const io = require('socket.io').listen(server);
-
-io.use((socket, next) => {
-    let token = socket.handshake.headers['Authorization'];
-    if (!token) {
-        return next(new Error('authentication error'));
-    }
-    try {
-        jwt.verify(token, config.secretKey);
-    } catch (err) {
-        console.log(err);
-        return next(new Error('authentication error'));    }
-    next();
-   
+const io = require('socket.io').listen(server, {
+    log: false,
+    agent: false,
+    origins: '*:*',
+    transports: ['websocket', 'htmlfile', 'xhr-polling', 'jsonp-polling', 'polling']
 });
 
-io.sockets.on('connection', function (socket) {
+// io.use((socket, next) => {
+//     console.log('inuse');
+//     let token = socket.handshake.headers['Authorization'];
+//     console.log("token",token);
+//     if (!token) {
+//         return next(new Error('authentication error'));
+//     }
+//     try {
+//         jwt.verify(token, config.secretKey);
+//     } catch (err) {
+//         console.log(err);
+//         return next(new Error('authentication error'));    }
+//     next();
+
+// });
+
+io.on('connection', function (socket) {
     console.log('a user connected');
     socket.on('message', (data) => {
-        console.log('[server](message): %s', JSON.stringify(data));
-        SentimentService.sendMessage(socket, data, io);
-        
-    });
-    // socket.on('connect-user', function (data) {
-    //     socket.join(data.username); // We are using room of socket io
-    //     SentimentService.notify(socket, data);
-    //   });
-    let token = socket.handshake.headers['Authorization'];
-    let data = jwt.decode(token);
-    socket.join(data.username); 
-    // SentimentService.notify(socket, data);
+        if (!data.token) {
+            return next(new Error('authentication error'));
+        }
+        let decode;
+        try {
+            decode = jwt.verify(data.token, config.secretKey);
+        } catch (err) {
+            console.log(err);
+            return next(new Error('authentication error'));
+        }
+        data.token =  decode;
+        SentimentService.sendMessage(io, data);
+        // io.sockets.in(data.beta).emit('message', data);
 
+    });
+    socket.on('connect-user', function (data) {
+        if (!data.token) {
+            return next(new Error('authentication error'));
+        }
+        let decode;
+        try {
+            decode = jwt.verify(data.token, config.secretKey);
+        } catch (err) {
+            console.log(err);
+            return next(new Error('authentication error'));
+        }
+        socket.join(decode.id); // We are using room of socket io
+        // console.log('toka', decode);
+    });
+    // let token = socket.handshake.headers['Authorization'];
+    // console.log('toke', token);
+    // let data = jwt.decode(token);
+    // socket.join(data.username); 
 
 });
-// var express = require('express');
-// var app     = express();
-// var server  = require('http').createServer(app);
-// var io      = require('socket.io').listen(server);
-// ...
-// server.listen(1234);
