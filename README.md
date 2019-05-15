@@ -33,7 +33,7 @@ Run `npm i` in both "backend" and "frontend" folder to install required packages
 
 `time`: time at which it is sent.
 
-`Users` contain given keys  { _id, Username, Email, Password, Name} .
+`Users` contain given keys  { _id, Username, Email, Password, Name, status} .
 
 `_id` : Primary key or document id given by mongo.
 
@@ -42,5 +42,7 @@ Run `npm i` in both "backend" and "frontend" folder to install required packages
 `Email`: user's email address.
 
 `Password`: user's password.
+
+`status`: show user's online status . (stores boolean)
 
 ## Messages and Users collection files are exported in file Messages.json and Users.json in  database folder respectively.
