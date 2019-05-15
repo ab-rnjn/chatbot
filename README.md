@@ -21,19 +21,26 @@ Run `npm i` in both "backend" and "frontend" folder to install required packages
 
 ## Collections Name:  Messages ,  Users
 
-`Messages` contain given keys  {_id, from, to, message, sentiment, time}
+`Messages` contain given keys  {_id, from, to, message, sentiment, time} .
 
-_id : Primary key or document id given by mongo
-from: id of user who sent the message
-to: id of user who recieved the message
-message: message exchanged by users
-time: time at which it is sent
+`_id` : Primary key or document id given by mongo.
 
-`Users` contain given keys  { _id, Username, Email, Password, Name}
+`from`: id of user who sent the message.
 
-_id : Primary key or document id given by mongo
-Username: unique name decided by user
-Email: user's email address
-Password: user's password
+`to`: id of user who recieved the message.
+
+`message`: message exchanged by users.
+
+`time`: time at which it is sent.
+
+`Users` contain given keys  { _id, Username, Email, Password, Name} .
+
+`_id` : Primary key or document id given by mongo.
+
+`Username`: unique name decided by user.
+
+`Email`: user's email address.
+
+`Password`: user's password.
 
 ## Messages and Users collection files are exported in file Messages.json and Users.json in  database folder respectively.
