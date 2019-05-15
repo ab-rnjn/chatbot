@@ -65,6 +65,7 @@ const io = require('socket.io').listen(server, {
 
 io.on('connection', function (socket) {
     console.log('a user connected');
+    console.log('<<<<<<<<<< ' ,socket.rooms)
     socket.on('message', (data) => {
         if (!data.token) {
             return socket.disconnect('unauthorized');
@@ -76,7 +77,7 @@ io.on('connection', function (socket) {
             console.log(err);
             return socket.disconnect('unauthorized');
         }
-        data.token =  decode;
+        data.token = decode;
         SentimentService.sendMessage(io, data);
         // io.sockets.in(data.beta).emit('message', data);
 
@@ -92,7 +93,12 @@ io.on('connection', function (socket) {
             console.log(err);
             return socket.disconnect('unauthorized');
         }
+        
         socket.join(decode.id); // We are using room of socket io
+        socket.broadcast.emit('connect-user', decode.id);
+        SentimentService.changeStatus(decode.id, true);
+
+
         // console.log('toka', decode);
     });
     socket.on('disconnect-user', function (data) {
@@ -107,7 +113,10 @@ io.on('connection', function (socket) {
             return socket.disconnect('unauthorized');
         }
         socket.leave(decode.id);
-        console.log('user left ',decode.id);
+        socket.broadcast.emit('disconnect-user', decode.id);
+        SentimentService.changeStatus(decode.id, false);
+
+        console.log('user left ', decode.id);
     });
     // let token = socket.handshake.headers['Authorization'];
     // console.log('toke', token);

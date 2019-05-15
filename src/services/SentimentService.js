@@ -41,7 +41,7 @@ class SentimentService {
       return res.status(403).json({ error: 'Permission Denied' });
     }
     const db = getDB();
-    
+
     const user_alpha = jwt.decode(req.get('authorization')).id //check it;
     const user_beta = req.params.user;
     // console.log(user_alpha,user_beta);
@@ -89,10 +89,16 @@ class SentimentService {
       return res.status(403).json({ error: 'Permission Denied' });
     }
     const db = getDB();
-    
+
     const userList = await db.collection('Users').find({ _id: { $ne: new Mongo.ObjectID(id) } }, { projection: { Password: 0 } }).toArray();
     reply.data = userList;
     return res.send(JSON.stringify(reply));
+  }
+
+  static async changeStatus(id, bool) {
+    const db = getDB();
+    await db.collection('Users').updateOne({ _id: new Mongo.ObjectID(id) }, { $set: { status: bool } }).catch(err => console.error(err));
+    return;
   }
 
 }

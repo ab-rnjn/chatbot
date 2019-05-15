@@ -1,4 +1,4 @@
-{"_id":{"$oid":"5cd90cac4c76642160bb016f"},"Username":"abhi","Email":"ab@gmail.com","Password":"pass","Name":"abhishek ranjan"}
-{"_id":{"$oid":"5cd90dcb4c76642160bb0170"},"Username":"abhi2","Email":"ab2@gmail.com","Password":"pass","Name":"abhishek ranjan 2"}
-{"_id":{"$oid":"5cda7c3d7866173db8847fa4"},"Username":"rnjn","Email":"rn@gmail.com","Password":"pass","Name":"ranjan abhishek"}
-{"_id":{"$oid":"5cdc755fc2454a2e0c4d8713"},"Username":"test1","Email":"test@gmail.com","Password":"test","Name":"test user"}
+{"_id":{"$oid":"5cd90cac4c76642160bb016f"},"Username":"abhi","Email":"ab@gmail.com","Password":"pass","Name":"abhishek ranjan","status":true}
+{"_id":{"$oid":"5cd90dcb4c76642160bb0170"},"Username":"abhi2","Email":"ab2@gmail.com","Password":"pass","Name":"abhishek ranjan 2","status":true}
+{"_id":{"$oid":"5cda7c3d7866173db8847fa4"},"Username":"rnjn","Email":"rn@gmail.com","Password":"pass","Name":"ranjan abhishek","status":false}
+{"_id":{"$oid":"5cdc755fc2454a2e0c4d8713"},"Username":"test1","Email":"test@gmail.com","Password":"test","Name":"test user","status":false}

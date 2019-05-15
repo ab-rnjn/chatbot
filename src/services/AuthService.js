@@ -18,7 +18,7 @@ class AuthenticationService {
         email = email.toLowerCase()
         const user = await db.collection('Users').findOne({ $or: [{ Username: username }, { Email: email }] });
         if (!user) {
-            await db.collection('Users').save({ Username: username, Email: email, Password: password, Name: name });
+            await db.collection('Users').save({ Username: username, Email: email, Password: password, Name: name, status: false });
             reply.info = 'User Registered Successfully';
             return res.send(JSON.stringify(reply));
         }
