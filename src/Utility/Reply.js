@@ -1,8 +1,8 @@
 class Reply{
     constructor(){
         this.data = null;
-        this.error =[];
-        this.info =[];
+        this.error =null;
+        this.info =null;
     }
 }
 

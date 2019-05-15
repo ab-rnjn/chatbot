@@ -12,7 +12,7 @@ class AuthenticationService {
         const emailCheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var { username, password, name, email } = req.body;
         if (!req.body || !email || !password || !username || !emailCheck.test(email)) {
-            reply.error.push('Invalid data');
+            reply.error = 'Invalid data';
             return res.send(JSON.stringify(reply));
         }
         email = email.toLowerCase()
@@ -48,12 +48,12 @@ class AuthenticationService {
         const reply = new Reply();
         var { username, password} = req.body;
         if (!req.body || !password || !username) {
-            reply.error.push('Invalid data');
+            reply.error = 'Invalid data';
             return res.send(JSON.stringify(reply));
         }
         const user =  await db.collection('Users').findOne({ Username: username , Password: password });
         if(!user){
-            reply.error.push('User does not exist with given username password combination');
+            reply.error = 'User does not exist with given username password combination';
             return res.send(JSON.stringify(reply));
         }
         reply.data =  {name: user.Name, email: user.Email, username: user.Username, id: user._id };

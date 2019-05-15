@@ -67,14 +67,14 @@ io.on('connection', function (socket) {
     console.log('a user connected');
     socket.on('message', (data) => {
         if (!data.token) {
-            return next(new Error('authentication error'));
+            return socket.disconnect('unauthorized');
         }
         let decode;
         try {
             decode = jwt.verify(data.token, config.secretKey);
         } catch (err) {
             console.log(err);
-            return next(new Error('authentication error'));
+            return socket.disconnect('unauthorized');
         }
         data.token =  decode;
         SentimentService.sendMessage(io, data);
@@ -83,17 +83,31 @@ io.on('connection', function (socket) {
     });
     socket.on('connect-user', function (data) {
         if (!data.token) {
-            return next(new Error('authentication error'));
+            return socket.disconnect('unauthorized');
         }
         let decode;
         try {
             decode = jwt.verify(data.token, config.secretKey);
         } catch (err) {
             console.log(err);
-            return next(new Error('authentication error'));
+            return socket.disconnect('unauthorized');
         }
         socket.join(decode.id); // We are using room of socket io
         // console.log('toka', decode);
+    });
+    socket.on('disconnect-user', function (data) {
+        if (!data.token) {
+            return socket.disconnect('unauthorized');
+        }
+        let decode;
+        try {
+            decode = jwt.verify(data.token, config.secretKey);
+        } catch (err) {
+            console.log(err);
+            return socket.disconnect('unauthorized');
+        }
+        socket.leave(decode.id);
+        console.log('user left ',decode.id);
     });
     // let token = socket.handshake.headers['Authorization'];
     // console.log('toke', token);

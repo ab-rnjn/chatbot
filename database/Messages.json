@@ -1,0 +1,34 @@
+{"_id":{"$oid":"5cdafaf3e684ef3de4e59924"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90dcb4c76642160bb0170","message":"now lets check","sentiment":":|","time":{"$date":{"$numberLong":"1557854963259"}}}
+{"_id":{"$oid":"5cdb0754d3bee547809f067b"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"hi rnjn from abhi","sentiment":":|","time":{"$date":{"$numberLong":"1557858132288"}}}
+{"_id":{"$oid":"5cdb0e2dd3bee547809f067c"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"hi abhi from ranjan","sentiment":":|","time":{"$date":{"$numberLong":"1557859885141"}}}
+{"_id":{"$oid":"5cdb0f67d3bee547809f067d"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"hi again","sentiment":":|","time":{"$date":{"$numberLong":"1557860199810"}}}
+{"_id":{"$oid":"5cdb12a3d3bee547809f067e"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"checking emmiter","sentiment":":)","time":{"$date":{"$numberLong":"1557861027498"}}}
+{"_id":{"$oid":"5cdb161b4134644bd08f4c92"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"waiting for alert","sentiment":":|","time":{"$date":{"$numberLong":"1557861915005"}}}
+{"_id":{"$oid":"5cdb190092d04f2b08486d85"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"the wait is over","sentiment":":(","time":{"$date":{"$numberLong":"1557862656387"}}}
+{"_id":{"$oid":"5cdb195292d04f2b08486d86"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"o really","sentiment":":(","time":{"$date":{"$numberLong":"1557862738639"}}}
+{"_id":{"$oid":"5cdb197f92d04f2b08486d87"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"let's see","sentiment":":|","time":{"$date":{"$numberLong":"1557862783426"}}}
+{"_id":{"$oid":"5cdb1a3f92d04f2b08486d88"},"from":"5cd90dcb4c76642160bb0170","to":"5cd90cac4c76642160bb016f","message":"my first message","sentiment":":|","time":{"$date":{"$numberLong":"1557862975506"}}}
+{"_id":{"$oid":"5cdb1a7192d04f2b08486d89"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90dcb4c76642160bb0170","message":"welcome","sentiment":":|","time":{"$date":{"$numberLong":"1557863025161"}}}
+{"_id":{"$oid":"5cdb1e15ec408938647803b0"},"from":"5cd90cac4c76642160bb016f","to":"5cd90dcb4c76642160bb0170","message":"that was nice","sentiment":":)","time":{"$date":{"$numberLong":"1557863957816"}}}
+{"_id":{"$oid":"5cdb1e34ec408938647803b1"},"from":"5cd90dcb4c76642160bb0170","to":"5cd90cac4c76642160bb016f","message":"o thanks a lot","sentiment":":)","time":{"$date":{"$numberLong":"1557863988953"}}}
+{"_id":{"$oid":"5cdb1e8aec408938647803b2"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90dcb4c76642160bb0170","message":"welcome again","sentiment":":|","time":{"$date":{"$numberLong":"1557864074052"}}}
+{"_id":{"$oid":"5cdb1ea2ec408938647803b3"},"from":"5cd90dcb4c76642160bb0170","to":"5cda7c3d7866173db8847fa4","message":"thank you so much","sentiment":":)","time":{"$date":{"$numberLong":"1557864098166"}}}
+{"_id":{"$oid":"5cdb1f3457c27936508c6c5f"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"hi ranjan","sentiment":":|","time":{"$date":{"$numberLong":"1557864244716"}}}
+{"_id":{"$oid":"5cdb202357c27936508c6c60"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"hi there","sentiment":":|","time":{"$date":{"$numberLong":"1557864483657"}}}
+{"_id":{"$oid":"5cdb214b57c27936508c6c61"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"that is a rap","sentiment":":|","time":{"$date":{"$numberLong":"1557864779856"}}}
+{"_id":{"$oid":"5cdb216557c27936508c6c62"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"it is a rap","sentiment":":|","time":{"$date":{"$numberLong":"1557864805689"}}}
+{"_id":{"$oid":"5cdb2b1afb9f7b1f741afc10"},"from":"5cd90cac4c76642160bb016f","to":"5cd90dcb4c76642160bb0170","message":"🤣🤣🤣","sentiment":":|","time":{"$date":{"$numberLong":"1557867290208"}}}
+{"_id":{"$oid":"5cdb3b94fb9f7b1f741afc11"},"from":"5cd90dcb4c76642160bb0170","to":"5cd90cac4c76642160bb016f","message":"whoooo","sentiment":":|","time":{"$date":{"$numberLong":"1557871508451"}}}
+{"_id":{"$oid":"5cdb3fd5fb9f7b1f741afc12"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"its done nearly","sentiment":":|","time":{"$date":{"$numberLong":"1557872597850"}}}
+{"_id":{"$oid":"5cdc763bc2454a2e0c4d8714"},"from":"5cd90cac4c76642160bb016f","to":"5cdc755fc2454a2e0c4d8713","message":"hi test user?","sentiment":":|","time":{"$date":{"$numberLong":"1557952059612"}}}
+{"_id":{"$oid":"5cdc76d1c2454a2e0c4d8715"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"aa","sentiment":":|","time":{"$date":{"$numberLong":"1557952209658"}}}
+{"_id":{"$oid":"5cdc76d9c2454a2e0c4d8716"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"bb","sentiment":":|","time":{"$date":{"$numberLong":"1557952217741"}}}
+{"_id":{"$oid":"5cdc76dec2454a2e0c4d8717"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"cc","sentiment":":|","time":{"$date":{"$numberLong":"1557952222236"}}}
+{"_id":{"$oid":"5cdc76e5c2454a2e0c4d8718"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"dd","sentiment":":|","time":{"$date":{"$numberLong":"1557952229262"}}}
+{"_id":{"$oid":"5cdc76e9c2454a2e0c4d8719"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"ee","sentiment":":|","time":{"$date":{"$numberLong":"1557952233744"}}}
+{"_id":{"$oid":"5cdc76eec2454a2e0c4d871a"},"from":"5cda7c3d7866173db8847fa4","to":"5cd90cac4c76642160bb016f","message":"ff","sentiment":":|","time":{"$date":{"$numberLong":"1557952238945"}}}
+{"_id":{"$oid":"5cdc7700c2454a2e0c4d871b"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"gg","sentiment":":|","time":{"$date":{"$numberLong":"1557952256461"}}}
+{"_id":{"$oid":"5cdc7704c2454a2e0c4d871c"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"hh","sentiment":":|","time":{"$date":{"$numberLong":"1557952260941"}}}
+{"_id":{"$oid":"5cdc770cc2454a2e0c4d871d"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"ii","sentiment":":|","time":{"$date":{"$numberLong":"1557952268619"}}}
+{"_id":{"$oid":"5cdc7715c2454a2e0c4d871e"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"jj","sentiment":":|","time":{"$date":{"$numberLong":"1557952277589"}}}
+{"_id":{"$oid":"5cdc771fc2454a2e0c4d871f"},"from":"5cd90cac4c76642160bb016f","to":"5cda7c3d7866173db8847fa4","message":"kk","sentiment":":|","time":{"$date":{"$numberLong":"1557952287183"}}}

@@ -1,0 +1,140 @@
+{
+    "fields": [
+      {
+        "name": "_id",
+        "path": "_id",
+        "count": 4,
+        "types": [
+          {
+            "name": "ObjectID",
+            "bsonType": "ObjectID",
+            "path": "_id",
+            "count": 4,
+            "values": [
+              "5cd90cac4c76642160bb016f",
+              "5cd90dcb4c76642160bb0170",
+              "5cda7c3d7866173db8847fa4",
+              "5cdc755fc2454a2e0c4d8713"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 4,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 4,
+        "type": "ObjectID",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "Email",
+        "path": "Email",
+        "count": 4,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "Email",
+            "count": 4,
+            "values": [
+              "ab@gmail.com",
+              "ab2@gmail.com",
+              "rn@gmail.com",
+              "test@gmail.com"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 4,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 4,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "Name",
+        "path": "Name",
+        "count": 4,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "Name",
+            "count": 4,
+            "values": [
+              "abhishek ranjan",
+              "abhishek ranjan 2",
+              "ranjan abhishek",
+              "test user"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 4,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 4,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "Password",
+        "path": "Password",
+        "count": 4,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "Password",
+            "count": 4,
+            "values": [
+              "pass",
+              "pass",
+              "pass",
+              "test"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 2,
+            "has_duplicates": true
+          }
+        ],
+        "total_count": 4,
+        "type": "String",
+        "has_duplicates": true,
+        "probability": 1
+      },
+      {
+        "name": "Username",
+        "path": "Username",
+        "count": 4,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "Username",
+            "count": 4,
+            "values": [
+              "abhi",
+              "abhi2",
+              "rnjn",
+              "test1"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 4,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 4,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      }
+    ],
+    "count": 4
+  }
