@@ -1,19 +1,18 @@
-# Backend
+## Backend
 
 Built on node.js
 
-Command to run :  `backend\src> node server.js`
+Command to run :  `chatbot-backend\src> node server.js`
 
 ## Fronted
 
 Built on Angular 7
 
-Command to run :  `frontend> ng s`
-
+Command to run :  `chatbot-frontend> ng s`
 
 ## Setup
 
-Run `npm i` in both "backend" and "frontend" folder to install required packages.
+Run `npm i` in both "chatbot-backend" and "chatbot-frontend" folder to install required packages.
 
 ### Database Used: MongoDB
 
@@ -45,4 +44,4 @@ Run `npm i` in both "backend" and "frontend" folder to install required packages
 
 `status`: show user's online status . (stores boolean)
 
-## Messages and Users collection files are exported in file Messages.json and Users.json in  database folder respectively.
+# Messages and Users collection files are exported in file Messages.json and Users.json in  database folder respectively.
